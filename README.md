@@ -148,6 +148,7 @@ the [Zerotoprod\OmdbApi\OmdbApiInterface](https://github.com/zero-to-prod/omdb-a
 ```php
 use Zerotoprod\OmdbApi\OmdbApiInterface;
 use Zerotoprod\Omdb\Omdb;
+
 class OmdbApiFake implements OmdbApiInterface
 {
     public function search()
