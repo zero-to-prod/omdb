@@ -26,6 +26,6 @@ class OmdbDependencyInjectionTest extends TestCase
     {
         $Omdb = new Omdb(new OmdbApiFake());
 
-        self::assertEquals('Avatar', $Omdb->search('Avatar')->Search[0]->Title);
+        self::assertEquals('Avatar', reset($Omdb->search('Avatar')->Search)->Title);
     }
 }
