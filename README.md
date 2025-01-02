@@ -8,6 +8,7 @@
 [![Packagist Version](https://img.shields.io/packagist/v/zero-to-prod/omdb?color=f28d1a)](https://packagist.org/packages/zero-to-prod/omdb)
 [![License](https://img.shields.io/packagist/l/zero-to-prod/omdb?color=red)](https://github.com/zero-to-prod/omdb/blob/main/LICENSE.md)
 [![wakatime](https://wakatime.com/badge/github/zero-to-prod/omdb.svg)](https://wakatime.com/badge/github/zero-to-prod/omdb)
+[![Hits-of-Code](https://hitsofcode.com/github/zero-to-prod//omdb?branch=main)](https://hitsofcode.com/github/zero-to-prod//omdb/view?branch=main)
 
 ## Contents
 
