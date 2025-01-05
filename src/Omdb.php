@@ -73,13 +73,13 @@ class Omdb
      * @see   https://github.com/zero-to-prod/omdb-api
      */
     public function byIdOrTitle(
-        string $title = null,
-        string $imdb_id = null,
-        Type $Type = null,
-        int $year = null,
-        bool $full_plot = false,
+        ?string $title = null,
+        ?string $imdb_id = null,
+        ?Type $Type = null,
+        ?int $year = null,
+        ?bool $full_plot = false,
         mixed $callback = null,
-        string $version = null,
+        ?string $version = null,
         array $CURLOPT = [CURLOPT_TIMEOUT => 10]
     ): Error|Title {
         $response = $this->OmdbApi->byIdOrTitle(
@@ -115,11 +115,11 @@ class Omdb
      */
     public function search(
         string $title,
-        Type $Type = null,
-        int $year = null,
-        int $page = 1,
+        ?Type $Type = null,
+        ?int $year = null,
+        ?int $page = 1,
         mixed $callback = null,
-        string $version = null,
+        ?string $version = null,
         array $CURLOPT = [CURLOPT_TIMEOUT => 10]
 
     ): Error|SearchResults {
