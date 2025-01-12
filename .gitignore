@@ -5,7 +5,5 @@ composer.lock
 .php-cs-fixer.cache
 /tests/generated/
 /.phpunit.cache/
-/vendor-php81/
-/vendor-php82/
-/vendor-php83/
-/vendor-php84/
+.vendor/
+.env
