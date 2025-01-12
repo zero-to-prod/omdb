@@ -21,13 +21,13 @@
     - [poster()](#poster)
     - [byIdOrTitle()](#byidortitle)
     - [search()](#search)
+    - [Factories](#factories)
+    - [Mocking](#mocking)
 - [Local Development](#local-development)
     - [Prerequisites](#prerequisites)
     - [Initializing](#initializing)
     - [Testing](#testing)
     - [Configuration](#configuration)
-    - [Factories](#factories)
-  - [Mocking](#mocking)
 - [Contributing](#contributing)
 
 ## Introduction
@@ -127,6 +127,33 @@ Returns a [SearchResults DataModel](https://github.com/zero-to-prod/omdb-models/
 $Omdb->search('Avatar')->Search['tt0499549']->Year; // 2009
 ```
 
+### Factories
+
+You can use the [provided factories](https://github.com/zero-to-prod/omdb-models#factories) without going through the api like this:
+
+```php
+\Zerotoprod\OmdbModels\Factories\TitleFactory::factory()->setTitle('Avatar')->make();
+```
+
+### Mocking
+
+You can mock the api by implementing
+the [Zerotoprod\OmdbApi\OmdbApiInterface](https://github.com/zero-to-prod/omdb-api/blob/main/src/OmdbApiInterface.php):
+
+```php
+use Zerotoprod\OmdbApi\OmdbApiInterface;
+use Zerotoprod\Omdb\Omdb;
+
+class OmdbApiFake implements OmdbApiInterface
+{
+    public function search()
+}
+
+$Omdb = new Omdb(new OmdbApiFake());
+
+$Omdb->search('Avatar');
+```
+
 ## Local Development
 
 This project provides a convenient [dock](https://github.com/zero-to-prod/dock) script to simplify local development workflows within Docker
@@ -179,33 +206,6 @@ Make sure these values reflect the PHP versions you intend to use.
 If the `.env` file does not exist, run the `sh dock init` command to create one from the `.env.example` template.
 
 Ensure you have installed all the development dependencies (composer install) before running the tests.
-
-### Factories
-
-You can use the [provided factories](https://github.com/zero-to-prod/omdb-models#factories) without going through the api like this:
-
-```php
-\Zerotoprod\OmdbModels\Factories\TitleFactory::factory()->setTitle('Avatar')->make();
-```
-
-### Mocking
-
-You can mock the api by implementing
-the [Zerotoprod\OmdbApi\OmdbApiInterface](https://github.com/zero-to-prod/omdb-api/blob/main/src/OmdbApiInterface.php):
-
-```php
-use Zerotoprod\OmdbApi\OmdbApiInterface;
-use Zerotoprod\Omdb\Omdb;
-
-class OmdbApiFake implements OmdbApiInterface
-{
-    public function search()
-}
-
-$Omdb = new Omdb(new OmdbApiFake());
-
-$Omdb->search('Avatar');
-```
 
 ## Contributing
 
