@@ -10,7 +10,11 @@ use Zerotoprod\OmdbModels\Title;
 use Zerotoprod\OmdbModels\Type;
 
 /**
- * A wrapper for https://www.omdbapi.com/
+ * A PHP wrapper for the OMDb API with full object support
+ *
+ * A wrapper for https://www.omdbapi.com
+ *
+ * @link https://github.com/zero-to-prod/omdb
  */
 class Omdb
 {
