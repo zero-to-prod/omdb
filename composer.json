@@ -55,5 +55,8 @@
   "suggest": {
     "zero-to-prod/data-model": "Transform Data to Type-Safe DTOs",
     "zero-to-prod/data-model-helper": "Helpers for a DataModel."
-  }
+  },
+  "bin": [
+    "bin/zero-to-prod-omdb"
+  ]
 }
