@@ -79,8 +79,20 @@ jobs:
               php_file=$(echo "$php_file" | sed 's/\\/\//g')
           
               if [[ ! -f "$php_file" ]]; then
-                  echo "Error: Main class file '$php_file' not found." >&2
-                  return 1
+                  echo "Warning: Main class file '$php_file' not found. Trying to find an alternative..." >&2
+          
+                  # Try to find the first PHP class file in the directory
+                  local alternative_file
+                  alternative_file=$(find "$directory" -maxdepth 1 -name "*.php" -type f | head -1)
+          
+                  if [[ -n "$alternative_file" ]]; then
+                      echo "Using alternative file: $alternative_file" >&2
+                      echo "$alternative_file"
+                      return 0
+                  else
+                      echo "Error: No PHP class files found in directory '$directory'." >&2
+                      return 1
+                  fi
               fi
           
               echo "$php_file"
